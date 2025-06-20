@@ -66,10 +66,7 @@ def register():
 
 
 @app.route('/index')
-@login_required
 def index():
-    data = load_data()
-    user_children = data['users'].get(session['user'], {}).get('children', [])
     return render_template('index.html', user_children=user_children)
 
 
