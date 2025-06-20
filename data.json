@@ -1,0 +1,64 @@
+{
+    "users": {
+        "docpinel": {
+            "password": "scrypt:32768:8:1$bqniVoxx11GA1vFS$b94a5bbe0493cad9b68089014e5cbd162bc3c6a46c974b2217edb92182b581fac5f3fa9a8a945756526dde5abb0ada5fabbb571a0b08206e8689a82e1c914af7",
+            "children": [
+                {
+                    "initials": "SM",
+                    "birth_date": "28/09/2020"
+                },
+                {
+                    "initials": "YM",
+                    "birth_date": "01/06/2017"
+                }
+            ]
+        },
+        "asas": {
+            "password": "scrypt:32768:8:1$88WVi4D7WYd9QToE$69d4d048cb6e3923696d3cd8045cb6bfd8b4490d52f26a07d3716cb2020919864a811a57628d97c6365cd6ce7b07a1dbc839ebe870b47654785ef8e147ef7680",
+            "children": []
+        },
+        "as": {
+            "password": "scrypt:32768:8:1$8JDE906a1KNagsEX$c4cf192a4abda0f49dc1cec9e78dabbbf4b84a68765a8e412b2bbcdd25d73be8f1e9b803c46cb984f5b090237ebf74ece6bf249a2c645baf9604d5a9c9cc0b8d",
+            "children": [
+                {
+                    "initials": "ym",
+                    "birth_date": "01/01/2025"
+                }
+            ]
+        },
+        "salma": {
+            "password": "scrypt:32768:8:1$7rrp9HKfd3jb4quY$60bde65f63eabb7b024027033d10260a2cafe5d7435df23872fd905165455be83453423deadcad91734a9767d0d8c2fcc2e81e6a8b9dd8f973af08145c993263",
+            "children": []
+        }
+    },
+    "children": [
+        {
+            "initials": "ym",
+            "birth_date": "01/01/2025"
+        },
+        {
+            "initials": "ym",
+            "birth_date": "01/01/2025"
+        },
+        {
+            "initials": "ym",
+            "birth_date": "14/01/2025"
+        },
+        {
+            "initials": "ym",
+            "birth_date": "01/01/2025"
+        },
+        {
+            "initials": "YM",
+            "birth_date": "12/11/2018"
+        },
+        {
+            "initials": "dsd",
+            "birth_date": "01/01/2025"
+        },
+        {
+            "initials": "aas",
+            "birth_date": "09/01/2025"
+        }
+    ]
+}
