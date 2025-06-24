@@ -1,0 +1,177 @@
+/* Styles de base */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    flex: 1 1 calc(50% - 20px); /* Deux boutons par ligne sur mobile */
+    max-width: 200px; /* Largeur maximale pour les boutons */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.special-btn {
+    background-color: #dc3545;
+}
+
+.special-btn:hover {
+    background-color: #c82333;
+}
+
+.logout-btn {
+    background-color: #6c757d;
+}
+
+.logout-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Media Queries pour l'adaptabilité mobile */
+@media (max-width: 600px) {
+    .btn {
+        flex: 1 1 100%; /* Un bouton par ligne sur les très petits écrans */
+        max-width: none;
+    }
+}
+
+/* Styles spécifiques pour la page de connexion */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("{{ url_for('static', filename='images/cabinet.jpeg') }}");
+    background-size: cover;
+    background-position: center;
+    padding: 1rem;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-card h1 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.login-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.login-btn:active {
+    background-color: #2471A3;
+    transform: translateY(0);
+}
+
+.register-link {
+    margin-top: 1rem;
+    color: #333;
+}
+
+.register-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design pour la page de connexion */
+@media screen and (max-width: 600px) {
+    .login-card {
+        padding: 1.5rem;
+    }
+
+    .login-card h1 {
+        font-size: 1.75rem;
+    }
+
+    .form-input {
+        padding: 0.5rem;
+    }
+
+    .login-btn {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}

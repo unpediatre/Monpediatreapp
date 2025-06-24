@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Mon Pédiatre Lite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container login-container">
+        <div class="login-card">
+            <h1>Connexion</h1>
+            <form action="{{ url_for('login') }}" method="post">
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur :</label>
+                    <input type="text" id="username" name="username" required class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe :</label>
+                    <input type="password" id="password" name="password" required class="form-input">
+                </div>
+                <button type="submit" class="btn login-btn">Se connecter</button>
+            </form>
+            <p class="register-link">Pas encore inscrit ? <a href="{{ url_for('register') }}">Inscrivez-vous ici</a></p>
+        </div>
+    </div>
+</body>
+</html>

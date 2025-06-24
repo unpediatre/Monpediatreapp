@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+     <!-- Favicon pour les navigateurs de bureau -->
+     <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
+    
+     <!-- Icône pour les appareils Apple -->
+     <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
+     
+     <!-- Pour d'autres tailles d'icônes (optionnel, mais recommandé pour la compatibilité mobile) -->
+     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/icon-32x32.png') }}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/icon-16x16.png') }}">
+     
+     <!-- Pour Windows -->
+     <meta name="msapplication-TileColor" content="#da532c">
+     <meta name="msapplication-TileImage" content="{{ url_for('static', filename='icons/ms-icon-144x144.png') }}">
+ 
+     <!-- Pour Android -->
+     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visites de {{ nom }} - Mon Pédiatre</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Visites de {{ nom }}</h1>
+    <ul id="visits-list">
+    {% for visite in visites %}
+        <li>
+            Date: {{ visite.visit_date }} - Note: {{ visite.note }}
+        </li>
+    {% endfor %}
+    </ul>
+    <button onclick="window.history.back()">Retour</button>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

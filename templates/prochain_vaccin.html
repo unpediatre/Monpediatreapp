@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prochain Vaccin - Mon Pédiatre Lite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Prochain Vaccin pour {{ initials }}</h1>
+        
+       
+        
+        {% if birth_date %}
+            <p>Date de naissance de l'enfant : {{ birth_date }}</p>
+            <p>Âge de l'enfant : {{ age }}</p>
+            
+            <div class="info-box">
+                <h2>Historique des Vaccins</h2>
+                {% if vaccine_history %}
+                    <ul>
+                    {% for vaccine in vaccine_history %}
+                        <li>{{ vaccine.name }} à {{ vaccine.display_age }}</li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Aucun vaccin n'a encore été administré selon le calendrier actuel.</p>
+                {% endif %}
+            </div>
+            
+            <div class="info-box">
+                <h2>Prochain Vaccin Recommandé</h2>
+                {% if next_vaccine and next_vaccine.name %}
+                    <p>Le prochain vaccin recommandé est le <strong>{{ next_vaccine.name }}</strong> à {{ next_vaccine.display_age }}.</p>
+                {% else %}
+                    <p>Aucun vaccin supplémentaire n'est requis selon le calendrier actuel.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+        
+        <div id="actions">
+            <button onclick="window.location.href='/index'" class="btn">Retour</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#birthDatePicker", {
+            dateFormat: "d/m/Y",
+            maxDate: "today",
+            placeholder: "Sélectionnez la date de naissance",
+            locale: {
+                firstDayOfWeek: 1,
+                weekdays: {
+                    shorthand: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+                    longhand: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                },
+                months: {
+                    shorthand: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'],
+                    longhand: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                },
+            }
+        });
+        
+        function submitDate() {
+            var datePicker = document.getElementById('birthDatePicker');
+            var birthDate = datePicker.value;
+            if (birthDate) {
+                window.location.href = `/prochain_vaccin/{{ initials }}?birth_date=` + encodeURIComponent(birthDate);
+            } else {
+                alert('Veuillez sélectionner une date de naissance.');
+            }
+        }
+    </script>
+</body>
+</html>

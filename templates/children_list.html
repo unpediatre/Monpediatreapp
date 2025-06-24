@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Enfants - Mon Pédiatre Lite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des Enfants</h1>
+        {% if children %}
+            <ul>
+            {% for child in children %}
+                <li>{{ child.initials }} - Date de naissance: {{ child.birth_date }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun enfant enregistré.</p>
+        {% endif %}
+        <button onclick="window.location.href='/index'" class="btn">Retour</button>
+    </div>
+</body>
+</html>

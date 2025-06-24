@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Pédiatre Lite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .special-btn {
+            background-color: #28a745;
+        }
+
+        .special-btn:hover {
+            background-color: #218838;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 20px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue dans Mon Pédiatre Lite</h1>
+        <p>Développé par Dr Mhiri Kais</p>
+        
+        {% if session.get('user') %}
+            <div id="actions" class="button-container">
+                <button id="blogButton" class="btn special-btn" onclick="window.location.href='{{ url_for('mon_blog') }}'">✍️Mon Blog✍️</button>
+                <button id="addChildBtn" class="btn" onclick="window.location.href='{{ url_for('add_child') }}'">Ajouter un enfant</button>
+                <button id="deleteChildBtn" class="btn" onclick="requestChildAction('delete_child')">Supprimer un enfant</button>
+                <button id="childrenListBtn" class="btn" onclick="window.location.href='{{ url_for('children_list') }}'">Liste des enfants</button>
+                <button id="vaccineScheduleBtn" class="btn" onclick="window.location.href='{{ url_for('vaccine_schedule') }}'">💉Calendrier vaccinal Tunisien💉</button>
+                <button id="nextVaccineBtn" class="btn" onclick="requestChildAction('get_prochain_vaccin')">Prochain Vaccin</button>
+                <button id="logoutBtn" class="btn logout-btn" onclick="window.location.href='{{ url_for('logout') }}'">Déconnexion</button>
+                <button id="aboutBtn" class="btn" onclick="window.location.href='{{ url_for('about') }}'">🇹🇳À propos🇹🇳</button>
+            </div>
+        {% else %}
+            <div id="actions" class="button-container">
+                <button id="loginBtn" class="btn" onclick="window.location.href='{{ url_for('login') }}'">Connexion</button>
+                <button id="registerBtn" class="btn" onclick="window.location.href='{{ url_for('register') }}'">Inscription</button>
+            </div>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

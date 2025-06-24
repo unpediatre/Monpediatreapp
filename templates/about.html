@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Favicon pour les navigateurs de bureau -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
+
+    <!-- Icône pour les appareils Apple -->
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/apple-touch-icon.png') }}">
+
+    <!-- Pour d'autres tailles d'icônes (optionnel, mais recommandé pour la compatibilité mobile) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='icons/icon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='icons/icon-16x16.png') }}">
+
+    <!-- Pour Windows -->
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{{ url_for('static', filename='icons/ms-icon-144x144.png') }}">
+
+    <!-- Pour Android -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Mon Pédiatre Lite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 20px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>À propos</h1>
+        <p>
+            Mon Pédiatre Lite<br>
+            Développé par Dr Mhiri Kais<br>
+            Email: <a href="mailto:mhiri.kais@live.fr">mhiri.kais@live.fr</a><br>
+            Janvier 2025
+        </p>
+        <p>
+            Cette version Lite de l'application est conçue pour fournir des informations essentielles sur la santé
+            infantile sans stocker de données personnelles. Elle inclut des fonctionnalités telles que le calendrier vaccinal tunisien et des informations sur les prochains vaccins
+            basées sur l'âge de l'enfant.
+        </p>
+        <button onclick="window.location.href='/index'" class="btn">Retour</button>
+    </div>
+</body>
+
+</html>

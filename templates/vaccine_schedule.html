@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier Vaccinal Tunisien 2025</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            background-image: url("{{ url_for('static', filename='images/cabinet.jpeg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+        .note ul {
+            padding-left: 20px;
+        }
+        .note ul li {
+            margin-bottom: 0.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .btn:active {
+            background-color: #2471A3;
+            transform: translateY(0);
+        }
+        .cabinet-note {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #2c3e50;
+            text-align: center;
+            font-weight: 600;
+            background-color: rgba(52, 152, 219, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #3498db;
+        }
+        .qr-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .qr-container img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calendrier Vaccinal Tunisien 2025</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Âge</th>
+                    <th>Public</th>
+                    <th>Prix (Privé)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Naissance</td>
+                    <td>BCG (Tuberculose)<br>Hépatite B1</td>
+                    <td>99 DT<br>5 DT</td>
+                </tr>
+                <tr>
+                    <td>2 mois</td>
+                    <td>Pentavalent1+VPI<br>Vaccin Anti-Pneumococcique 1</td>
+                    <td>152 DT<br>246 DT</td>
+                </tr>
+                <tr>
+                    <td>3 mois</td>
+                    <td>Pentavalent 2+VPI</td>
+                    <td>152 DT</td>
+                </tr>
+                <tr>
+                    <td>4 mois</td>
+                    <td>Vaccin Anti-Pneumococcique 2</td>
+                    <td>246 DT</td>
+                </tr>
+                <tr>
+                    <td>6 mois</td>
+                    <td>Pentavalent 3+VPI</td>
+                    <td>152 DT</td>
+                </tr>
+                <tr>
+                    <td>11 mois</td>
+                    <td>Vaccin Anti-Pneumococcique 3</td>
+                    <td>246 DT</td>
+                </tr>
+                <tr>
+                    <td>12 mois</td>
+                    <td>Vaccin contre la rougeole et la Rubéole 1<br>Hépatite A1</td>
+                    <td>55 DT<br>62 DT</td>
+                </tr>
+                <tr>
+                    <td>18 mois</td>
+                    <td>DTC-4 + VPO<br>Vaccin contre la rougeole et la Rubéole 2</td>
+                    <td>107 DT<br>55 DT</td>
+                </tr>
+                <tr>
+                    <td>6 ans</td>
+                    <td>DTCaP<br>Hépatite A2</td>
+                    <td>67 DT<br>62 DT</td>
+                </tr>
+                <tr>
+                    <td>12 ans</td>
+                    <td>dT+VPO+VPH</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>18 ans</td>
+                    <td>dT+VPO</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="note">
+            <p><strong>Abréviations :</strong></p>
+            <ul>
+                <li><strong>BCG :</strong> Vaccin contre la Tuberculose</li>
+                <li><strong>Pentavalent :</strong> Vaccin contre la Diphtérie, le Tétanos, la Coqueluche, l’Hépatite B et l’Haemophilus type b</li>
+                <li><strong>VPI :</strong> Vaccin contre la poliomyélite injectable</li>
+                <li><strong>VPO :</strong> Vaccin contre la poliomyélite oral</li>
+                <li><strong>DTC :</strong> Vaccin contre la Diphtérie, le Tétanos et la Coqueluche</li>
+                <li><strong>DTCP :</strong> Vaccin contre la Diphtérie, le Tétanos, la Coqueluche et la Poliomyélite</li>
+                <li><strong>dT :</strong> Vaccin contre la Diphtérie et le Tétanos</li>
+                <li><strong>VPH :</strong> Vaccin contre le Papillomavirus Humain</li>
+            </ul>
+        </div>
+        <div class="cabinet-note">
+            <p>Dr MHIRI Kais - Pédiatre</p>
+        </div>
+    </div>
+    <div class="qr-container">
+      
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="btn" onclick="location.href='{{ url_for('index') }}'">Retour</button>
+</div>
+</body>
+</html>

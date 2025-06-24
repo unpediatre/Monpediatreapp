@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen - Mon Pédiatre Lite</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/cabinet.jpeg') }}" alt="Splash Screen">
+    <script>
+        setTimeout(function(){
+            window.location.href = "/language_selection";
+        }, 3000); // Redirige vers l'index après 3 secondes
+    </script>
+</body>
+</html>
